@@ -14,7 +14,8 @@ steps:
     REGISTRYURL:
       from_secret: registryurl
   commands:
-  - sleep 5 # give docker enough time to start
+  # - sleep 5 # give docker enough time to start
+  - while true; do if docker ps -a 2>1 >/dev/null; then echo "Docker Server Running"; break; else echo "Docker starting, retrying in 5 seconds"; sleep 5; fi; done
   - docker ps -a
   - docker buildx create --name multiarch --driver docker-container --use
   - docker buildx ls
