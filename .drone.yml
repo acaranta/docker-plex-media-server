@@ -17,10 +17,12 @@ steps:
   # - sleep 5 # give docker enough time to start
   - while true; do if docker ps -a 2>1 >/dev/null; then echo "Docker Server Running"; break; else echo "Docker starting, retrying in 5 seconds"; sleep 5; fi; done
   - docker ps -a
+  - echo $TARGETPLATFORM
   - docker buildx create --name multiarch --driver docker-container --use
   - docker buildx ls
-  - docker buildx build --platform linux/arm/v7,linux/arm64/v8,linux/amd64 --push --tag $REGISTRYURL/plex-media-server:latest ./latest
-  - docker buildx build --platform linux/arm/v7,linux/arm64/v8,linux/amd64 --push --tag $REGISTRYURL/plex-media-server:autoupdate ./autoupdate
+  - docker buildx build --platform linux/arm/v7,linux/arm64/v8,linux/amd64 --push --tag $REGISTRYURL/plex-media-server:latest ./testing
+  # - docker buildx build --platform linux/arm/v7,linux/arm64/v8,linux/amd64 --push --tag $REGISTRYURL/plex-media-server:latest ./latest
+  # - docker buildx build --platform linux/arm/v7,linux/arm64/v8,linux/amd64 --push --tag $REGISTRYURL/plex-media-server:autoupdate ./autoupdate
 
 
 - name: notification
