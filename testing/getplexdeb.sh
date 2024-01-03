@@ -14,8 +14,9 @@ case $TARGETARCH in
     ARCHPLX="linux-x86_64"
     ;;
 esac
+echo "Found ARCH : $TARGETARCH, chosen ARCHPLX : $ARCHPLX"
 
-PLEXDEBURL=$(curl -s "https://plex.tv/pms/downloads/5.json" -o - |jq -r ".computer.Linux.releases[] | select(.distro==\"debian\" and .build==\"${ARCHPLX}\").url" )
+PLEXDEBURL=$(wget -q "https://plex.tv/pms/downloads/5.json" -O - |jq -r ".computer.Linux.releases[] | select(.distro==\"debian\" and .build==\"${ARCHPLX}\").url" )
 
 echo "Fetching : $PLEXDEBURL to /tmp/plexmediaserver.deb"
 curl "$PLEXDEBURL" -o /tmp/plexmediaserver.deb

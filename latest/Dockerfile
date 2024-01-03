@@ -12,7 +12,7 @@ RUN set -x \
  && apt-get dist-upgrade -y \
  && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
         ca-certificates \
-        wget jq curl \
+        wget jq \
         dumb-init \
         xmlstarlet \
  && apt-get clean \

@@ -8,14 +8,12 @@ RUN echo "Target Arch : $TARGETARCH"
 # Install basic required packages.
 RUN set -x \
  && apt-get update \
- && apt-get upgrade -y \
- && apt-get dist-upgrade -y \
  && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
         ca-certificates \
         wget \
         dumb-init \
         xmlstarlet \
-        jq curl \
+        jq \
  && apt-get clean \
  && rm -rf /var/lib/apt/lists/*
 

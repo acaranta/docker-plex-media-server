@@ -22,7 +22,7 @@ steps:
   - docker buildx ls
   - docker buildx build --platform linux/arm/v7,linux/arm64/v8,linux/amd64 --push --tag $REGISTRYURL/plex-media-server:latest ./testing
   # - docker buildx build --platform linux/arm/v7,linux/arm64/v8,linux/amd64 --push --tag $REGISTRYURL/plex-media-server:latest ./latest
-  # - docker buildx build --platform linux/arm/v7,linux/arm64/v8,linux/amd64 --push --tag $REGISTRYURL/plex-media-server:autoupdate ./autoupdate
+  # - docker buildx build --platform linux/amd64 --push --tag $REGISTRYURL/plex-media-server:autoupdate ./autoupdate
 
 
 - name: notification
@@ -42,7 +42,7 @@ steps:
 
 
 services:
-- name: docker
+- name: docker service
   image: docker:dind
   privileged: true
   volumes:
