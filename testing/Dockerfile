@@ -1,4 +1,7 @@
 FROM debian:buster-slim
 
-RUN echo "Target Arch : $TARGETPLATFORM"
+ARG TARGETARCH 
+ARG TARGETPLATFORM
+RUN echo "Target Platform : $TARGETPLATFORM"
+RUN echo "Target Arch : $TARGETARCH"
 

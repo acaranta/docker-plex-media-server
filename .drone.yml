@@ -31,7 +31,7 @@ steps:
       status: [success, failure]
   settings:
     urls: 
-      - from_secret: appriseurl
+      from_secret: appriseurl
     content_type: application/json
     template: |
       {
