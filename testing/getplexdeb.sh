@@ -19,4 +19,4 @@ echo "Found ARCH : $TARGETARCH, chosen ARCHPLX : $ARCHPLX"
 PLEXDEBURL=$(wget -q "https://plex.tv/pms/downloads/5.json" -O - |jq -r ".computer.Linux.releases[] | select(.distro==\"debian\" and .build==\"${ARCHPLX}\").url" )
 
 echo "Fetching : $PLEXDEBURL to /tmp/plexmediaserver.deb"
-curl "$PLEXDEBURL" -o /tmp/plexmediaserver.deb
+wget  "$PLEXDEBURL" -O /tmp/plexmediaserver.deb
