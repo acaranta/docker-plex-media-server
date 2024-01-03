@@ -15,7 +15,7 @@ RUN set -x \
         wget \
         dumb-init \
         xmlstarlet \
-        jq \
+        jq curl \
  && apt-get clean \
  && rm -rf /var/lib/apt/lists/*
 
