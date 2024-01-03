@@ -7,11 +7,14 @@ RUN set -x \
  && apt-get dist-upgrade -y \
  && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
         ca-certificates \
-        wget \
+        wget jq curl \
         dumb-init \
         xmlstarlet \
  && apt-get clean \
  && rm -rf /var/lib/apt/lists/*
+
+ADD getplexdeb.sh /tmp
+RUN chmod a+x /tmp/getplexdeb.sh ; /tmp/getplexdeb.sh
 
 RUN set -x \
     # Download and install Plex (non plexpass) after displaying downloaded URL in the log.
@@ -19,11 +22,12 @@ RUN set -x \
     # Note: We created a dummy /bin/start to avoid install to fail due to upstart not being installed.
     # We won't use upstart anyway.
     # $ curl -I 'https://plex.tv/downloads/latest/1?channel=8&build=linux-ubuntu-x86_64&distro=ubuntu'
- && wget --progress=bar:force:noscroll -O plexmediaserver.deb  'https://plex.tv/downloads/latest/1?channel=8&build=linux-ubuntu-x86_64&distro=ubuntu' \
+ && chmod a+x /tmp/getplexdeb.sh ; /tmp/getplexdeb.sh \
+#  && wget --progress=bar:force:noscroll -O plexmediaserver.deb  'https://plex.tv/downloads/latest/1?channel=8&build=linux-ubuntu-x86_64&distro=ubuntu' \
  && touch /bin/start \
  && chmod +x /bin/start \
- && dpkg -i plexmediaserver.deb \
- && rm -f plexmediaserver.deb \
+ && dpkg -i /tmp/plexmediaserver.deb \
+ && rm -f /tmp/plexmediaserver.deb \
  && rm -f /bin/start
 
 RUN set -x \
