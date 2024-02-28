@@ -5,10 +5,10 @@ data:
   dockerfiledir: ./latest
   imagename: plex-media-server
   imagetag: latest  
----
-kind: template
-load: docker-build-multiarch.yaml
-data:
-  dockerfiledir: ./autoupdate
-  imagename: plex-media-server
-  imagetag: autoupdate  
+# ---
+# kind: template
+# load: docker-build-multiarch.yaml
+# data:
+#   dockerfiledir: ./autoupdate
+#   imagename: plex-media-server
+#   imagetag: autoupdate  
