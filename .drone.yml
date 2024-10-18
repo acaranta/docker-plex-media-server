@@ -5,6 +5,7 @@ data:
   dockerfiledir: ./latest
   imagename: plex-media-server
   imagetag: latest  
+  branches: ['master', 'main']
 # ---
 # kind: template
 # load: docker-build-multiarch.yaml
