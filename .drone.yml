@@ -3,7 +3,7 @@ kind: template
 load: docker-build-multiarch.yaml
 data:
   dockerfiledir: ./latest
-  imagename: plex-media-server
+  imagename: app/plex-media-server
   imagetag: latest  
   branches: ['master', 'main']
 # ---
