@@ -4,6 +4,8 @@ load: docker-build-multiarch.yaml
 data:
   dockerfiledir: ./latest
   imagename: app/plex-media-server
+  hubimagename: plex-media-server
+  repotype: both
   imagetag: latest  
   branches: ['master', 'main']
 # ---
