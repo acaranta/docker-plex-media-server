@@ -2,7 +2,7 @@
 kind: template
 load: docker-build-multiarch.yaml
 data:
-  dockerfiledir: latest/Dockerfile 
+  dockerfiledir: ./Dockerfile 
   buildcontext: latest/
   imagename: app/plex-media-server
   hubimagename: plex-media-server
