@@ -6,6 +6,8 @@ data:
   buildcontext: latest/
   imagename: app/plex-media-server
   hubimagename: plex-media-server
+  giturl: ''
+  gitbranch: ''
   repotype: both
   imagetag: latest  
   branches: ['master', 'main']
