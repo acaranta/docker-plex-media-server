@@ -1,6 +1,12 @@
 The MIT License (MIT)
 
 Copyright (c) 2016 Werner Beroux
+Copyright (c) 2020-2026 Arthur Caranta
+
+This project is a fork of https://github.com/wernight/docker-plex-media-server
+by Werner Beroux, distributed under the MIT License. The original copyright
+notice above is retained as required; modifications made in this fork are
+copyright Arthur Caranta and released under the same license.
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
